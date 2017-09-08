@@ -62,3 +62,9 @@
     margin-right: .8em;
     border-radius: 4px 0 0 4px;
   }
+
+  
+.dropdown:hover .dropdown-menu {
+    display: block;
+    margin-top: 0;
+}
