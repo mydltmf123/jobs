@@ -2,8 +2,11 @@
     background-color: #CFD8DC !important;
     color: white;
   }
+  #header-menu{
+    height:40px;
+  }
   .header {
-    margin: 0 2em 0 0;
+    margin: 1em 2.7em 0 2em;
     list-style: none;
   }
   .header li{
