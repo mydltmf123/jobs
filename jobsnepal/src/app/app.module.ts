@@ -12,7 +12,7 @@ import { MenuDetailComponent } from './menu-detail.component';
     BrowserModule,
     FormsModule,
     AlertModule.forRoot(),
-    Ng2CarouselamosModule
+      Ng2CarouselamosModule
   ],
   declarations: [
     AppComponent,

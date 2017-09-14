@@ -1,1 +1,74 @@
 /* You can add global styles to this file, and also import other style files */
+/*
+.dropdown:hover .dropdown-menu {
+    display: block;
+    margin-top: 0;
+}*/
+
+.selected {
+    background-color: #CFD8DC !important;
+    color: white;
+  }
+  #header-menu{
+    height:40px;
+  }
+  .header {
+    margin: 1em 2.7em 0 2em;
+    list-style: none;
+  }
+  .header li{
+    display:inline;   
+    margin: .5em;  
+    float: right;
+    font-size: 1em;
+  }
+  .header li a{
+    color:black;
+  }
+  .heroes {
+    margin: 0 0 2em 0;
+    list-style-type: none;
+    padding: .3em .5em;
+    background-color: #EEE;
+    height: 1.6em;
+    border-radius:4px; 
+  }
+  .heroes li {
+    display:inline;
+    cursor: pointer;
+    position: relative;
+    left: 0;
+    background-color: #EEE;
+    margin: .5em;
+    padding: .3em .5em;
+    height: 1.6em;
+    width: 10em;
+    border-radius: 4px;
+  }
+  .heroes li.selected:hover {
+    background-color: #BBD8DC !important;
+    color: white;
+  }
+  .heroes li:hover {
+    color: #607D8B;
+    background-color: #DDD;
+    left: .1em;
+  }
+  .heroes .text {
+    position: relative;
+    top: -3px;
+  }
+  .heroes .badge {
+    display: inline-block;
+    font-size: small;
+    color: white;
+    padding: 0.8em 0.7em 0 0.7em;
+    background-color: #607D8B;
+    line-height: 1em;
+    position: relative;
+    left: -1px;
+    top: -4px;
+    height: 1.8em;
+    margin-right: .8em;
+    border-radius: 4px 0 0 4px;
+  }

@@ -3,9 +3,9 @@ import { Component } from '@angular/core';
 import { Menu } from './menu';
 
 const MENUS: Menu[] = [
-  { id: 1, name: '/assets/image/job.jpg', url: 'ab' },
-  { id: 2, name: '/assets/image/nepal.jpg', url: 'bc' },
-  { id: 3, name: '/assets/image/nepal.jpg', url:  'cd'}
+  { id: 1, name: 'Jobs Search', url: 'ab' },
+  { id: 2, name: 'Worker Search', url: 'bc' },
+  { id: 3, name: 'Resume Register', url:  'cd'}
 ];
 
 @Component({
@@ -18,18 +18,9 @@ export class AppComponent {
   menus = MENUS;
   selectedMenu: Menu;
   image = '/assets/image/job.jpg';
-
-  items: Array<any> = []
-
-  constructor() {
-    this.items = [
-      { name: '/assets/image/job.jpg' },
-      { name: '/assets/image/nepal.jpg' },
-      { name: '/assets/image/job.jpg' },
-    ]
-  }
-
+images='/assets/image';
   onSelect(menu: Menu): void {
     this.selectedMenu = menu;
   }
 }
+
