@@ -18,7 +18,7 @@ export class AppComponent {
   menus = MENUS;
   selectedMenu: Menu;
   image = '/assets/image/job.jpg';
-images='/assets/image';
+  images='/assets/image';
   onSelect(menu: Menu): void {
     this.selectedMenu = menu;
   }

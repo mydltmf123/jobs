@@ -2,7 +2,6 @@ import { NgModule }      from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
 import { FormsModule }   from '@angular/forms';
 import { AlertModule } from 'ngx-bootstrap';
-import { Ng2CarouselamosModule } from 'ng2-carouselamos';
 
 import { AppComponent }        from './app.component';
 import { MenuDetailComponent } from './menu-detail.component';
@@ -12,7 +11,6 @@ import { MenuDetailComponent } from './menu-detail.component';
     BrowserModule,
     FormsModule,
     AlertModule.forRoot(),
-      Ng2CarouselamosModule
   ],
   declarations: [
     AppComponent,
