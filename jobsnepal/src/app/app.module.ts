@@ -8,7 +8,8 @@ import { AppComponent }        from './app.component';
 import { MenuDetailComponent } from './menu-detail.component';
 import { HomeComponent } from './home.component';
 import { ResumeComponent } from './resume.component';
-
+import {LoginComponent} from './login.component';
+import {BoardComponent} from './board.component';
 
 @NgModule({
   imports: [
@@ -21,7 +22,9 @@ import { ResumeComponent } from './resume.component';
     AppComponent,
     MenuDetailComponent,
     HomeComponent,
-    ResumeComponent
+    ResumeComponent,
+    LoginComponent, 
+    BoardComponent
   ],
   bootstrap: [ AppComponent ]
 })
