@@ -4,24 +4,3 @@
     display: block;
     margin-top: 0;
 }*/
-
-.selected {
-    background-color: #CFD8DC !important;
-    color: white;
-  }
-  #header-menu{
-    height:40px;
-  }
-  .header {
-    margin: 1em 2.7em 0 2em;
-    list-style: none;
-  }
-  .header li{
-    display:inline;   
-    margin: .5em;  
-    float: right;
-    font-size: 1em;
-  }
-  .header li a{
-    color:black;
-  }
