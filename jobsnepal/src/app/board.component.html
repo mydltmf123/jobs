@@ -1,44 +1,30 @@
-
-        <div class="container">
-        <hr/>
-    <table class="table table-striped">
-            
-            
-        <thead>
-    <tr>
-        <th>번호</th>
-        <th>제목</th>
-        <th>작성자</th>
-        <th>날짜</th>
-        <th>조회수</th>
-    </tr>
-</thead>
-<tbody>
-        <tr>
-                <td>123</td>
-                <td>이제 곧 Bootstrap</td>
-                <td>홍길동</td>
-                <td>2016.12.31</td>
-                <td>4</td>
-         </tr>
-         <tr>
-                <td>122</td>
-                <td>안녕</td>
-                <td>홍길영</td>
-                <td>2016.11.13</td>
-                <td>6</td>
-         </tr>
-         <tr>
-                <td>121</td>
-                <td>바바바바</td>
-                <td>김갑돌</td>
-                <td>2016.10.12</td>
-                <td>10</td>
-         </tr>
-    </tbody>
-</table>
 <hr/>
-<a class="btn btn-default pull-right">글쓰기</a>
+<div class="container">
+    
+        <table class="table table-striped">            
+            <thead>
+                <tr>
+                    <th>id</th>
+                    <th>subject</th>
+                    <th>user_name</th>
+                    <th>date</th>
+                </tr>
+            </thead>
+            <ng-container *ngFor="let contact of results">
+            <tbody>
+                <tr>
+                    <td>{{contact.board_id}}</td>
+                    <td>{{contact.subject}}</td>
+                    <td>{{contact.user_name}}</td>
+                    <td>{{contact.reg_date}}</td>    
+                </tr>
+            </tbody>
+            </ng-container>
+        </table>
+
+
+<hr/>
+<a routerLink="/ws_post" routerLinkActive="active" class="btn btn-default pull-right">Post</a>
 <div class=text-center>
     <ul class="pagination">
         <li><a href="#">1</a></li>

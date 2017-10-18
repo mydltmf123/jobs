@@ -15,9 +15,9 @@ app.use('/', express.static(__dirname));
 
 // Import API Routes
 app.use('/api/user', require('./api/user_api'));
+app.use('/api/ws_board', require('./api/ws_board_api'));
+
 //app.use('/api/post', )
-
-
 
 
 port = process.env.PORT || 3000;

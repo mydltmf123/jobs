@@ -13,7 +13,9 @@ import { ResumeComponent } from './resume.component';
 import {LoginComponent} from './login.component';
 import {BoardComponent} from './board.component';
 import { UserService } from './service/user.service';
-import { JoinComponent } from'./join.component';
+import { JoinComponent } from './join.component';
+//import { WS_BoardService } from './service/ws_board.service';
+import { WS_PostComponent } from './ws_post.component';
 
 @NgModule({
   imports: [
@@ -30,7 +32,9 @@ import { JoinComponent } from'./join.component';
     ResumeComponent,
     LoginComponent, 
     BoardComponent,
-    JoinComponent
+    JoinComponent,
+//    WS_BoardService,
+    WS_PostComponent
   ],
   providers: [UserService],
   bootstrap: [ AppComponent ]

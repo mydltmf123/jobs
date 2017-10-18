@@ -1,0 +1,32 @@
+<!--<form name="user" method="post" action="/resume">-->
+    <form (submit)="addpost(user_id, user_name, subject, content, reg_date)">
+        
+        <div style="margin:20px">
+        
+        <div class="input-group" style="margin-bottom:20px">
+            <span class="input-group-addon" id="basic-addon1">User ID</span>
+            <input type="text" name="user_id" class="form-control" [(ngModel)]="user_id" placeholder="User ID" aria-describedby="basic-addon1" style="width:500px">
+        </div>
+        <div class="input-group" style="margin-bottom:20px">
+            <span class="input-group-addon" id="basic-addon1">Name</span>
+            <input type="text" name="user_name" class="form-control" [(ngModel)]="user_name" placeholder="Name" aria-describedby="basic-addon1" style="width:500px">
+        </div>
+        
+        <div class="input-group" style="margin-bottom:20px">
+            <span class="input-group-addon" id="basic-addon1">subject</span>
+            <input type="text" name="subject" class="form-control" [(ngModel)]="subject" placeholder="Subject" aria-describedby="basic-addon1" style="width:460px">
+        </div>
+        
+        <div class="input-group" style="margin-bottom:20px">
+                <span class="input-group-addon" id="basic-addon1">Content</span>
+                <input type="text" name="content" class="form-control" [(ngModel)]="content" placeholder="Content" aria-describedby="basic-addon1" style="width:460px">
+        </div>
+        <div class="input-group" style="margin-bottom:20px">
+            <span class="input-group-addon" id="basic-addon1">Register Date</span>
+            <input type="text" name="reg_date" class="form-control" [(ngModel)]="reg_date" placeholder="YYYY-MM-DD HH:MM:SS" aria-describedby="basic-addon1" style="width:460px">
+        </div>
+        <div>
+            <button type="submit">Post</button>
+        </div>
+        </div>
+    </form>
