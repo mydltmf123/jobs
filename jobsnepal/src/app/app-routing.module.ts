@@ -5,6 +5,7 @@ import { HomeComponent } from './home.component';
 import { ResumeComponent } from './resume.component';
 import { LoginComponent } from './login.component';
 import { BoardComponent } from './board.component';
+import { JoinComponent } from './join.component';
 
 
 const routes: Routes = [
@@ -12,7 +13,8 @@ const routes: Routes = [
   { path: 'home',  component: HomeComponent },
   { path: 'resume', component: ResumeComponent },
   { path: 'login', component: LoginComponent },
-  { path: 'board', component: BoardComponent }
+  { path: 'board', component: BoardComponent },
+   {path: 'join', component: JoinComponent}
 ];
 
 @NgModule({

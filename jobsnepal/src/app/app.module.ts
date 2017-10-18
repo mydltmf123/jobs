@@ -13,6 +13,7 @@ import { ResumeComponent } from './resume.component';
 import {LoginComponent} from './login.component';
 import {BoardComponent} from './board.component';
 import { UserService } from './service/user.service';
+import { JoinComponent } from'./join.component';
 
 @NgModule({
   imports: [
@@ -28,7 +29,8 @@ import { UserService } from './service/user.service';
     HomeComponent,
     ResumeComponent,
     LoginComponent, 
-    BoardComponent
+    BoardComponent,
+    JoinComponent
   ],
   providers: [UserService],
   bootstrap: [ AppComponent ]

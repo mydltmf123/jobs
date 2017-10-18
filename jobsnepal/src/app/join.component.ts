@@ -4,12 +4,12 @@ import { Location }          from '@angular/common';
 import { UserService } from './service/user.service';
 
 @Component({
-  selector: 'app-resume',
-  templateUrl: './resume.component.html',
+  selector: 'app-join',
+  templateUrl: './join.component.html',
   styles: [''],
   providers: [UserService]
 })
-export class ResumeComponent implements OnInit{
+export class JoinComponent implements OnInit{
   name: string;
   passwd: string;
   results = [];

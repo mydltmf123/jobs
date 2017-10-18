@@ -21,8 +21,8 @@ module.exports.addUser = function(data, callback) {
 	connection.query("INSERT INTO user SET ?", data, callback);
 }
 
-module.exports.findByUsername = function(username, callback) {
-	connection.query("SELECT * FROM user WHERE name = '" + username + "'", callback);
+module.exports.findByUsername = function(name, callback) {
+	connection.query("SELECT * FROM user WHERE name = '" + name + "'", callback);
 }
 
 module.exports.encrypt = function(data, callback) {

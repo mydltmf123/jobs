@@ -20,19 +20,24 @@ app.get('/:id', function(req, res){
 });
 
 app.post('/', function(req, res, next) {
-	var data = req.body;
-	console.log(data);
+	var data = {
+		name: req.body.name,
+		passwd: req.body.passwd
+	};
 
-	if(data.username === undefined)
-		return res.sendStatus(403);
-	user.findByUsername(data.username, function(err, rows, fields) {
+	if(!data.name)
+		return res.sendStatus(400);
+	if(!data.passwd)
+		return res.sendStatus(400);
+	//if(!data.email)
+	user.findByUsername(data.name, function(err, rows, fields) {
 		if(rows.length == 1) {
 			user.sendResponse(false, res);
 		} else {
 			user.encrypt(data, function(err, hash) {
 				data = {
-					username: data.username,
-					hashedpassword: hash
+					name: data.name,
+					passwd: hash
 				};
 				user.addUser(data, function(err, info) {
 					if(err) throw err;
