@@ -18,7 +18,7 @@ const routes: Routes = [
   { path: 'board', component: BoardComponent },
   { path: 'join', component: JoinComponent },
   { path: 'ws_post', component: WS_PostComponent },
-  { path: 'view', component: ViewComponent }
+  { path: 'view/:id', component: ViewComponent }
   
 ];
 

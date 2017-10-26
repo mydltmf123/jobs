@@ -14,7 +14,7 @@
             <tbody>
                 <tr>
                     <td>{{contact.board_id}}</td>
-                    <td><a href="/view" ngsubmit=onSubmit({{contact.board_id}})>{{contact.subject}}</a>
+                    <td><a routerLink="/view/{{contact.board_id}}">{{contact.subject}}</a>
                       </td>
                     <td>{{contact.user_name}}</td>
                     <td>{{contact.reg_date}}</td>    

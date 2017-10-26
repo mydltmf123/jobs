@@ -1,8 +1,7 @@
 import { Component, Inject, OnInit }        from '@angular/core';
-import { ActivatedRoute, ParamMap } from '@angular/router';
+import { ActivatedRoute, ParamMap} from '@angular/router';
 import { Location }          from '@angular/common';
 import { UserService } from './service/user.service';
-
 @Component({
   selector: 'app-view',
   templateUrl: './view.component.html',
@@ -17,13 +16,17 @@ export class ViewComponent implements OnInit{
     content: string;
     reg_date: string;
   results = [];
-  constructor(private ws_boardService:UserService) {
-	  
+  constructor(private routes:ActivatedRoute,
+    private ws_boardService:UserService) {
 	}
 
 	ngOnInit() {
-	  this.results = [];
-      this.getpost();
+    this.results = [];
+    this.routes.params.subscribe(params=>{
+      //console.log(params['id']);
+      this.getpost(params['id']);
+    });
+      //this.getpost();
 	}
     getpost() {
         
