@@ -42,7 +42,8 @@ export class WS_PostComponent implements OnInit{
 	  var result = this.ws_boardService.addpost(data)
 	    .subscribe(res => {
 	    	if(res.success == "true") {
-	    		this.results.unshift(data);
+					this.results.unshift(data);
+					location.replace("/board"); 
 				}
 				//this.name = "";
 				//this.passwd = "";

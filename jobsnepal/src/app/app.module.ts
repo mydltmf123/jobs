@@ -16,6 +16,8 @@ import { UserService } from './service/user.service';
 import { JoinComponent } from './join.component';
 //import { WS_BoardService } from './service/ws_board.service';
 import { WS_PostComponent } from './ws_post.component';
+import { ViewComponent } from './view.component';
+
 
 @NgModule({
   imports: [
@@ -34,7 +36,8 @@ import { WS_PostComponent } from './ws_post.component';
     BoardComponent,
     JoinComponent,
 //    WS_BoardService,
-    WS_PostComponent
+    WS_PostComponent,
+    ViewComponent
   ],
   providers: [UserService],
   bootstrap: [ AppComponent ]

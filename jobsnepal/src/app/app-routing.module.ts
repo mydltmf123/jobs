@@ -7,6 +7,7 @@ import { LoginComponent } from './login.component';
 import { BoardComponent } from './board.component';
 import { JoinComponent } from './join.component';
 import { WS_PostComponent } from './ws_post.component';
+import {ViewComponent } from './view.component';
 
 
 const routes: Routes = [
@@ -16,7 +17,9 @@ const routes: Routes = [
   { path: 'login', component: LoginComponent },
   { path: 'board', component: BoardComponent },
   { path: 'join', component: JoinComponent },
-  { path: 'ws_post', component: WS_PostComponent }
+  { path: 'ws_post', component: WS_PostComponent },
+  { path: 'view', component: ViewComponent }
+  
 ];
 
 @NgModule({

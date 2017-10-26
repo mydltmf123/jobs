@@ -3,7 +3,7 @@ var mysql = require('mysql');
 var connection = mysql.createConnection({
 	host: 'localhost',
 	user: 'root',
-	password: 'akfldk1',
+	password: '1234',
 	database: 'jobsnepal'
 });
 
@@ -28,6 +28,7 @@ module.exports.findByUsername = function(name, callback) {
 module.exports.findBySubject = function(name, callback) {
 	connection.query("SELECT * FROM ws_board WHERE subject = '" + subject + "'", callback);
 }
+//findone id로
 
 module.exports.encrypt = function(data, callback) {
 	bcrypt.genSalt(10, function(err, salt) {
