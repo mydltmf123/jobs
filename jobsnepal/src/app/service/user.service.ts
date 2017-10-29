@@ -30,11 +30,13 @@ export class UserService {
 			.map(res => res.json());
 	}
 
-	getpost(id) {
+	getpost() {
 		return this.http.get(this.apiUrl+this.ws_board_endpoint, {headers:this.headers}).map(
 			res => res.json()
 		);
 	}
+
+
 
 	addpost(data) {
 		let headers = new Headers();

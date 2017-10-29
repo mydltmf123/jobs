@@ -31,11 +31,12 @@ export class ViewComponent implements OnInit{
 	}
     getpost(id) {
         
-          var result = this.ws_userService.getpost(id)
+      var result = this.ws_userService.getpost()
         .subscribe(res => {
           this.results = res;
           console.log(res);
          // console.log( ng get(contact.board_id));
         });
-  }
+     }
+    
 }
