@@ -30,7 +30,7 @@ export class UserService {
 			.map(res => res.json());
 	}
 
-	getpost() {
+	getpost(id) {
 		return this.http.get(this.apiUrl+this.ws_board_endpoint, {headers:this.headers}).map(
 			res => res.json()
 		);

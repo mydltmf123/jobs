@@ -17,24 +17,25 @@ export class ViewComponent implements OnInit{
     reg_date: string;
   results = [];
   constructor(private routes:ActivatedRoute,
-    private ws_boardService:UserService) {
+    private ws_userService:UserService) {
 	}
 
 	ngOnInit() {
     this.results = [];
+    var $this= this;
     this.routes.params.subscribe(params=>{
       //console.log(params['id']);
-      this.getpost(params['id']);
+      $this.getpost(params['id']);
     });
       //this.getpost();
 	}
-    getpost() {
+    getpost(id) {
         
-          var result = this.ws_boardService.getpost()
+          var result = this.ws_userService.getpost(id)
         .subscribe(res => {
           this.results = res;
           console.log(res);
          // console.log( ng get(contact.board_id));
         });
-}
+  }
 }
