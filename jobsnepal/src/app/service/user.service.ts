@@ -5,7 +5,7 @@ import { URLSearchParams } from '@angular/http';
 @Injectable()
 export class UserService {
 	apiUrl = 'http://localhost:3000/api';
-	user_endpoint = '/user';
+	user_endpoint = '/users';
 	ws_board_endpoint = '/ws_board';
 	headers : Headers;
 	constructor(private http:Http) {
@@ -24,7 +24,12 @@ export class UserService {
 		// let options = new RequestOptions({ headers: headers });
 		let urlSearchParams = new URLSearchParams();
 		urlSearchParams.append('name', data.name);
-		urlSearchParams.append('passwd', data.passwd);
+		urlSearchParams.append('password', data.password);
+		urlSearchParams.append('email', data.email);
+		urlSearchParams.append('image', data.image);
+		urlSearchParams.append('user_type', data.user_type);
+		
+		
 
 		return this.http.post(this.apiUrl+this.user_endpoint, urlSearchParams)
 			.map(res => res.json());

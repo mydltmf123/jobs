@@ -22,14 +22,43 @@ app.get('/:id', function(req, res){
 app.post('/', function(req, res, next) {
 	var data = {
 		name: req.body.name,
-		passwd: req.body.passwd
+		password: req.body.password,
+		email: req.body.email,
+		image: req.body.image,
+		user_type: req.body.user_type
+
 	};
 
 	if(!data.name)
+		{
+			console.log(data.name);
 		return res.sendStatus(400);
-	if(!data.passwd)
+		}
+	if(!data.password)
+		{
+			console.log(data.password);
+			return res.sendStatus(400);
+		}
+	if(!data.email)
+		{
+			console.log(data.email);
+		return res.sendStatus(400);}
+	if(!data.image)
+		{ 
+			console.log(data.image);
+			return res.sendStatus(400);
+		}
+	//	console.log("aaaaaaaaaaaaaaaaaaaaaaa");
+		
+	if(!data.user_type)
+		{
+			console.log(data.user_type);
+			console.log("aaaaaaaaaaaaaaaaaaaaaaa");
 		return res.sendStatus(400);
-	//if(!data.email)
+		}	
+
+
+		
 	user.findByUsername(data.name, function(err, rows, fields) {
 		if(rows.length == 1) {
 			user.sendResponse(false, res);
@@ -37,7 +66,7 @@ app.post('/', function(req, res, next) {
 			user.encrypt(data, function(err, hash) {
 				data = {
 					name: data.name,
-					passwd: hash
+					password: hash
 				};
 				user.addUser(data, function(err, info) {
 					if(err) throw err;

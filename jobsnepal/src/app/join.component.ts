@@ -11,7 +11,10 @@ import { UserService } from './service/user.service';
 })
 export class JoinComponent implements OnInit{
   name: string;
-  passwd: string;
+	password: string;
+	email: string;
+	image: string;
+	user_type: string;
   results = [];
   constructor(private userService:UserService) {
 	  
@@ -26,10 +29,14 @@ export class JoinComponent implements OnInit{
 	  .subscribe(res => console.log(res));
 	}
 
-	addUser(name, passwd) {
+	addUser(name, password, email, image, user_type) {
 		var data = {
 			name: name,
-			passwd: passwd
+			password: password,
+			email: email,
+			image: image,
+			user_type: user_type
+
 		};
 	  var result = this.userService.addUser(data)
 	    .subscribe(res => {

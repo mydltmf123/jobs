@@ -1,5 +1,5 @@
 <!--<form name="user" method="post" action="/resume">-->
-    <form (submit)="addUser(name, passwd)">
+    <form (submit)="addUser(name, password, email, image, user_type)">
         
         <div style="margin:20px">
         
@@ -7,18 +7,34 @@
             <span class="input-group-addon" id="basic-addon1">Name</span>
             <input type="text" name="name" class="form-control" [(ngModel)]="name" placeholder="Name" aria-describedby="basic-addon1" style="width:500px">
         </div>
+        <div class="input-group" style="margin-bottom:20px">
+            <span class="input-group-addon" id="basic-addon1">Password</span>
+            <input type="text" name="password" class="form-control" [(ngModel)]="password" placeholder="Password" aria-describedby="basic-addon1" style="width:500px">
+        </div>
         
-        <!--<div class="input-group" style="margin-bottom:20px">
-            <span class="input-group-addon" id="basic-addon1">email</span>
-            <input type="text" name="email" class="form-control"  placeholder="email" aria-describedby="basic-addon1" style="width:460px">
-        </div>-->
         
         <div class="input-group" style="margin-bottom:20px">
-                <span class="input-group-addon" id="basic-addon1">password</span>
-                <input type="text" name="passwd" class="form-control" [(ngModel)]="passwd" placeholder="password" aria-describedby="basic-addon1" style="width:460px">
+                <span class="input-group-addon" id="basic-addon1">Email</span>
+                <input type="text" name="email" class="form-control" [(ngModel)]="email" placeholder="Email" aria-describedby="basic-addon1" style="width:460px">
         </div>
+        <div class="input-group" style="margin-bottom:20px">
+            <span class="input-group-addon" id="basic-addon1">Image</span>
+            <input type="text" name="image" class="form-control" [(ngModel)]="image" placeholder="Image" aria-describedby="basic-addon1" style="width:460px">
+    </div>
+
+    <div class="input-group" style="margin-bottom:20px">
+        <span class="input-group-addon" id="basic-addon1">User_type</span>
+        <input type="text" name="user_type" class="form-control" [(ngModel)]="user_type" placeholder="User_type" aria-describedby="basic-addon1" style="width:460px">
+       
+    <!--  <select name="user_type"  class="form-control" [(ngModel)]="user_type" placeholder="User_type" aria-describedby="basic-addon1"style="width:460px">
+         
+            <option value="Applicant">Applicant</option>
+            <option value="Employer">Employer</option>
+        </select>
+    -->
+</div>
         <div>
-        <button type="submit">Join in</button>
+            <button type="submit">Join in</button>
         </div>
         </div>
         </form>
