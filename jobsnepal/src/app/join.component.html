@@ -8,31 +8,31 @@
             <input type="text" name="name" class="form-control" [(ngModel)]="name" placeholder="Name" aria-describedby="basic-addon1" style="width:500px">
         </div>
         <div class="input-group" style="margin-bottom:20px">
+            <span class="input-group-addon" id="basic-addon1">Email</span>
+            <input type="text" name="email" class="form-control" [(ngModel)]="email" placeholder="Email" aria-describedby="basic-addon1" style="width:460px">
+        </div>
+        <div class="input-group" style="margin-bottom:20px">
             <span class="input-group-addon" id="basic-addon1">Password</span>
             <input type="text" name="password" class="form-control" [(ngModel)]="password" placeholder="Password" aria-describedby="basic-addon1" style="width:500px">
         </div>
-        
-        
-        <div class="input-group" style="margin-bottom:20px">
-                <span class="input-group-addon" id="basic-addon1">Email</span>
-                <input type="text" name="email" class="form-control" [(ngModel)]="email" placeholder="Email" aria-describedby="basic-addon1" style="width:460px">
-        </div>
+    
         <div class="input-group" style="margin-bottom:20px">
             <span class="input-group-addon" id="basic-addon1">Image</span>
             <input type="text" name="image" class="form-control" [(ngModel)]="image" placeholder="Image" aria-describedby="basic-addon1" style="width:460px">
-    </div>
+        </div>
 
     <div class="input-group" style="margin-bottom:20px">
         <span class="input-group-addon" id="basic-addon1">User_type</span>
-        <input type="text" name="user_type" class="form-control" [(ngModel)]="user_type" placeholder="User_type" aria-describedby="basic-addon1" style="width:460px">
-       
-    <!--  <select name="user_type"  class="form-control" [(ngModel)]="user_type" placeholder="User_type" aria-describedby="basic-addon1"style="width:460px">
+       <!-- <input type="radio" name="user_type" value="Applicant" class="form-control" [(ngModel)]="user_type" placeholder="User_type" aria-describedby="basic-addon1" ><label>Applicant</label>
+        <input type="radio" name="user_type" value="Employer" class="form-control" [(ngModel)]="user_type" placeholder="User_type" aria-describedby="basic-addon1" ><label>Employer</label>
+       -->
+        <select name="user_type"  class="form-control" [(ngModel)]="user_type" placeholder="User_type" aria-describedby="basic-addon1"style="width:460px">
          
             <option value="Applicant">Applicant</option>
             <option value="Employer">Employer</option>
         </select>
-    -->
-</div>
+    
+    </div>
         <div>
             <button type="submit">Join in</button>
         </div>

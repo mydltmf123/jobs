@@ -3,7 +3,7 @@ var mysql = require('mysql');
 var connection = mysql.createConnection({
 	host: 'localhost',
 	user: 'root',
-	password: '1234',
+	password: 'akfldk1',
 	database: 'jobsnepal'
 });
 
@@ -18,11 +18,11 @@ module.exports.findAll = function(callback) {
 
 
 module.exports.addUser = function(data, callback) {
-	connection.query("INSERT INTO users SET ?", data, callback);
+	connection.query("INSERT IGNORE INTO users SET ?", data, callback);
 }
 
-module.exports.findByUsername = function(name, callback) {
-	connection.query("SELECT * FROM users WHERE name = '" + name + "'", callback);
+module.exports.findByUsername = function(email, callback) {
+	connection.query("SELECT * FROM users WHERE email = '" + email + "'", callback);
 }
 
 module.exports.encrypt = function(data, callback) {

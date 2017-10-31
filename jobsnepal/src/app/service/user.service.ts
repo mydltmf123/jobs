@@ -17,15 +17,19 @@ export class UserService {
 			res => res.json()
 		);
 	}
-
+	/*findUser(data){
+		let headers = new Headers();
+		let 
+		return this.http.get(this.apiUrl+)
+	}*/
 	addUser(data) {
 		let headers = new Headers();
 		// let headers = new Headers({"Content-Type": "application/json"});
 		// let options = new RequestOptions({ headers: headers });
 		let urlSearchParams = new URLSearchParams();
-		urlSearchParams.append('name', data.name);
-		urlSearchParams.append('password', data.password);
+		urlSearchParams.append('name', data.name);		
 		urlSearchParams.append('email', data.email);
+		urlSearchParams.append('password', data.password);
 		urlSearchParams.append('image', data.image);
 		urlSearchParams.append('user_type', data.user_type);
 		

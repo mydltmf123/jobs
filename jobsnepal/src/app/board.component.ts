@@ -19,7 +19,7 @@ export class BoardComponent implements OnInit{
   reg_date: string;
 
   results = [];
-  constructor(private ws_userService:UserService) {
+  constructor(private userService:UserService) {
 	  
 	}
 
@@ -29,7 +29,7 @@ export class BoardComponent implements OnInit{
 	}
   getpost() {
     
-	  var result = this.ws_userService.getpost()
+	  var result = this.userService.getpost()
     .subscribe(res => {
       this.results = res;
       console.log(res);

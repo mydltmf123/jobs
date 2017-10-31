@@ -29,11 +29,13 @@ export class JoinComponent implements OnInit{
 	  .subscribe(res => console.log(res));
 	}
 
-	addUser(name, password, email, image, user_type) {
+	addUser(name, email, password, image, user_type) {
+		console.log(name, email, password, image, user_type)
+
 		var data = {
 			name: name,
-			password: password,
 			email: email,
+			password: password,
 			image: image,
 			user_type: user_type
 
@@ -41,7 +43,8 @@ export class JoinComponent implements OnInit{
 	  var result = this.userService.addUser(data)
 	    .subscribe(res => {
 	    	if(res.success == "true") {
-	    		this.results.unshift(data);
+					this.results.unshift(data);
+					location.replace("/login");
 				}
 				//this.name = "";
 				//this.passwd = "";

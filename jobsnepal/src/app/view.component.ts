@@ -17,7 +17,7 @@ export class ViewComponent implements OnInit{
     reg_date: string;
   results = [];
   constructor(private routes:ActivatedRoute,
-    private ws_userService:UserService) {
+    private userService:UserService) {
 	}
 
 	ngOnInit() {
@@ -31,7 +31,7 @@ export class ViewComponent implements OnInit{
 	}
     getpost(id) {
         
-      var result = this.ws_userService.getpost()
+      var result = this.userService.getpost()
         .subscribe(res => {
           this.results = res;
           console.log(res);

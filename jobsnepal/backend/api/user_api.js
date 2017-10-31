@@ -13,17 +13,50 @@ app.get('/', function(req, res) {
 });
 
 app.get('/:id', function(req, res){
-	user.findByUsername(req.params.id, function(err, item){
+	user.findByUsername(req.params.email, function(err, item){
 		if(err) throw err;
 		return res.send(item[0]);
 	})
 });
+/*app.post('/:email', function(req, res, next){
+	var data ={
+		email:req.body.email,
+		password:req.body.password,
+	};
+	if(!data.email){
+		console.log(data.email);
+		return res.sendStatus(400);
+	}
+	if(!data.password){
+		console.log(data.password);
+		return res.sendStatus(400);
+	}
+	user.findByUsername(data.email, function(err, rows, fields) {
+		if(rows.length == 1) {
+			user.encrypt(data, function(err, hash) {
+				data = {
+					email: data.email,
+					password: hash,
+				};
+				user.getUser(data.email, function(err, rows, fields) {
+					
+					if(err) throw err;
+					console.log(info);
+					user.sendResponse(true, res);
+				});
+			});
 
+		} else {
+			user.sendResponse(false, res);
+			
+		};
+	});
+});*/
 app.post('/', function(req, res, next) {
 	var data = {
 		name: req.body.name,
-		password: req.body.password,
 		email: req.body.email,
+		password: req.body.password,
 		image: req.body.image,
 		user_type: req.body.user_type
 
@@ -32,7 +65,7 @@ app.post('/', function(req, res, next) {
 	if(!data.name)
 		{
 			console.log(data.name);
-		return res.sendStatus(400);
+			return res.sendStatus(400);
 		}
 	if(!data.password)
 		{
@@ -42,31 +75,33 @@ app.post('/', function(req, res, next) {
 	if(!data.email)
 		{
 			console.log(data.email);
-		return res.sendStatus(400);}
+			return res.sendStatus(400);
+		}
 	if(!data.image)
 		{ 
 			console.log(data.image);
 			return res.sendStatus(400);
 		}
-	//	console.log("aaaaaaaaaaaaaaaaaaaaaaa");
 		
 	if(!data.user_type)
 		{
 			console.log(data.user_type);
-			console.log("aaaaaaaaaaaaaaaaaaaaaaa");
-		return res.sendStatus(400);
+			return res.sendStatus(400);
 		}	
 
 
 		
-	user.findByUsername(data.name, function(err, rows, fields) {
+	user.findByUsername(data.email, function(err, rows, fields) {
 		if(rows.length == 1) {
 			user.sendResponse(false, res);
 		} else {
 			user.encrypt(data, function(err, hash) {
 				data = {
 					name: data.name,
-					password: hash
+					email: data.email,
+					password: hash,
+					image: data.image,
+					user_type: data.user_type
 				};
 				user.addUser(data, function(err, info) {
 					if(err) throw err;
