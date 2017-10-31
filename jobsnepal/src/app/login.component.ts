@@ -25,16 +25,24 @@ export class LoginComponent implements OnInit{
       this.results = [];
       this.getUsers();
     }
-    /*login(email, password) {
+    login(email, password) {
       var data={
         email:email,
-        paassword:password
+        password:password
       }
-      this.userService.getUser(email)
-      .subscribe(res => if(res==true){
-
-      })
-    }*/
+      this.userService.findUser(data)
+      .subscribe(res => {
+        if(res==true){
+          console.log(res);
+          this.results.unshift(data);
+					location.replace("/home");
+        }
+        else{
+          console.log(res);
+        }
+        
+      });
+    }
     getUsers() {
       this.userService.getUsers()
       .subscribe(res => console.log(res));

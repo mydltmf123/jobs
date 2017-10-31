@@ -7,6 +7,7 @@ export class UserService {
 	apiUrl = 'http://localhost:3000/api';
 	user_endpoint = '/users';
 	ws_board_endpoint = '/ws_board';
+	
 	headers : Headers;
 	constructor(private http:Http) {
 		this.headers = new Headers({"Content-Type": "application/json"});
@@ -17,11 +18,17 @@ export class UserService {
 			res => res.json()
 		);
 	}
-	/*findUser(data){
+	findUser(data){
 		let headers = new Headers();
-		let 
-		return this.http.get(this.apiUrl+)
-	}*/
+		let urlSearchParams = new URLSearchParams();
+				
+		urlSearchParams.append('email', data.email);
+		urlSearchParams.append('password', data.password);
+		
+	//"/"+data.email+"/"+data.password
+		return this.http.get(this.apiUrl+this.user_endpoint+'/email='+data.email+'/password='+data.password, {headers:this.headers})
+			.map(res => res.json());
+	}
 	addUser(data) {
 		let headers = new Headers();
 		// let headers = new Headers({"Content-Type": "application/json"});
@@ -33,8 +40,6 @@ export class UserService {
 		urlSearchParams.append('image', data.image);
 		urlSearchParams.append('user_type', data.user_type);
 		
-		
-
 		return this.http.post(this.apiUrl+this.user_endpoint, urlSearchParams)
 			.map(res => res.json());
 	}

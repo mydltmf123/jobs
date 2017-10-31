@@ -12,13 +12,43 @@ app.get('/', function(req, res) {
 	})
 });
 
-app.get('/:id', function(req, res){
-	user.findByUsername(req.params.email, function(err, item){
+app.get('/email=:email/password=:password', function(req, res){
+	console.log(req.params);
+	console.log(req.params.email);
+	console.log(req.params.password);
+	var data={
+		email:req.params.email,
+		password:req.params.password
+	}
+	user.findByUsername(data.email, function(err, rows, item){
 		if(err) throw err;
-		return res.send(item[0]);
+		if(rows.length == 1) {			
+			user.encrypt(data, function(err, hash) {
+				data = {
+					email: data.email,
+					password: hash,
+				};
+				if(data.password==rows.password){
+					console.log(data.email);
+					console.log(data.password);
+					user.sendResponse(true, res);
+				}
+				else {
+					console.log(data)
+					user.sendResponse(false, res);
+				};
+				
+			});
+
+		} else {
+			user.sendResponse(false, res);
+			
+		};
+		//return res.send(item[0]);
+		//res.json(item)
 	})
 });
-/*app.post('/:email', function(req, res, next){
+/*app.get('/:id', function(req, res, next){
 	var data ={
 		email:req.body.email,
 		password:req.body.password,
@@ -32,18 +62,21 @@ app.get('/:id', function(req, res){
 		return res.sendStatus(400);
 	}
 	user.findByUsername(data.email, function(err, rows, fields) {
-		if(rows.length == 1) {
+		if(rows.email == data.email) {
+			
 			user.encrypt(data, function(err, hash) {
 				data = {
 					email: data.email,
 					password: hash,
 				};
-				user.getUser(data.email, function(err, rows, fields) {
-					
-					if(err) throw err;
-					console.log(info);
+				if(data.password==rows.password){
+					console.log(info)
 					user.sendResponse(true, res);
-				});
+				}
+				else {
+					user.sendResponse(false, res);
+				};
+				
 			});
 
 		} else {
