@@ -94,7 +94,7 @@ app.post('/', function(req, res, next) {
 		user_type: req.body.user_type
 
 	};
-
+	console.log(data);
 	if(!data.name)
 		{
 			console.log(data.name);
@@ -122,28 +122,44 @@ app.post('/', function(req, res, next) {
 			return res.sendStatus(400);
 		}	
 
-
+	user.findByEmail(data.email, function(err, rows){
+		if(err) return res.send(err);
 		
-	user.findByUsername(data.email, function(err, rows, fields) {
-		if(rows.length == 1) {
-			user.sendResponse(false, res);
-		} else {
-			user.encrypt(data, function(err, hash) {
-				data = {
-					name: data.name,
-					email: data.email,
-					password: hash,
-					image: data.image,
-					user_type: data.user_type
-				};
-				user.addUser(data, function(err, info) {
-					if(err) throw err;
-					console.log(info);
-					user.sendResponse(true, res);
-				});
+		if(rows.length >= 1){
+			return res.json({
+				'error': 1,
+				'message' : 'already user'
 			});
-		};
+		}
+		
+		user.addUser(data, function(err, rows){
+			if(err) return res.send(err);
+			return res.json({
+				'rows':rows
+			})
+		});
 	});
+	
+	// user.findByUsername(data.email, function(err, rows, fields) {
+	// 	if(rows.length >= 1) {
+	// 		user.sendResponse(false, res);
+	// 	} else {
+	// 		user.encrypt(data, function(err, hash) {
+	// 			data = {
+	// 				name: data.name,
+	// 				email: data.email,
+	// 				password: hash,
+	// 				image: data.image,
+	// 				user_type: data.user_type
+	// 			};
+	// 			user.addUser(data, function(err, info) {
+	// 				if(err) throw err;
+	// 				console.log(info);
+	// 				user.sendResponse(true, res);
+	// 			});
+	// 		});
+	// 	};
+	// });
 });
 
 module.exports = app;
