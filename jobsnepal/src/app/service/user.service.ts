@@ -26,7 +26,9 @@ export class UserService {
 		urlSearchParams.append('password', data.password);
 		
 	//"/"+data.email+"/"+data.password
-		return this.http.get(this.apiUrl+this.user_endpoint+'/email='+data.email+'/password='+data.password, {headers:this.headers})
+		//return this.http.get(this.apiUrl+this.user_endpoint+'/email='+data.email+'/password='+data.password, {headers:this.headers})
+		//	.map(res => res.json());
+		return this.http.post(this.apiUrl+this.user_endpoint+'/login', urlSearchParams)
 			.map(res => res.json());
 	}
 	addUser(data) {

@@ -3,7 +3,7 @@ var mysql = require('mysql');
 var connection = mysql.createConnection({
 	host: 'localhost',
 	user: 'root',
-	password: '1234',
+	password: 'akfldk1',
 	database: 'jobsnepal'
 });
 
@@ -24,20 +24,28 @@ module.exports.findAll = function(callback) {
 // }
 
 module.exports.addUser = function(data, callback){
-	connection.query("INSERT INTO users VALUES('"+data.name+"', '"+data.email+"', '"+data.password+"', '"+data.image+"', '"+data.user_type+"')", callback);
+	connection.query("INSERT INTO users (name, email, password, image, user_type) VALUES('"+data.name+"', '"+data.email+"', '"+data.password+"', '"+data.image+"', '"+data.user_type+"')", callback);
 }
 module.exports.findByEmail = function(email, callback){
 	connection.query("SELECT * FROM users WHERE email = '" + email + "'", callback);
+}
+module.exports.checklogin=function(data, callback){
+	// 생성된 해쉬를 원래 비밀번호로 검증한다. 맞을 경우 true를 반환한다. 주로 회원 로그인 로직에서 사용된다. 
+	//boolean isValidPassword = BCrypt.checkpw(password, passwordHashed);
+	connection.query("SELECT * FROM users WHERE email='"+data.email+"' and password='"+data.password+"'", callback);
 }
 module.exports.findByUsername = function(name, callback) {
 	connection.query("SELECT * FROM users WHERE name = '" + name + "'", callback);
 }
 
 module.exports.encrypt = function(data, callback) {
-	// bcrypt.genSalt(10, function(err, salt) {
+	//bcrypt.genSalt(10, function(err, salt) {
 	// 	bcrypt.hash(data.password, salt, callback);
-	// })
+	//})
 	bcrypt.hash(data.password, salt, callback);
+	//bcrypt.hash(data.password, bcrypt.genSalt(10), callback);
+	 
+
 }
 
 module.exports.sendResponse = function(success, res) {

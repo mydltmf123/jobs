@@ -1,5 +1,5 @@
 <!--<form name="user" method="post" action="/resume">-->
-    <form (submit)="addUser(name, password, email, image, user_type)">
+    <form (submit)="addUser(name, email, password, image, user_type)">
         
         <div style="margin:20px">
         
@@ -9,7 +9,7 @@
         </div>
         <div class="input-group" style="margin-bottom:20px">
             <span class="input-group-addon" id="basic-addon1">Email</span>
-            <input type="text" name="email" class="form-control" [(ngModel)]="email" placeholder="Email" aria-describedby="basic-addon1" style="width:460px">
+            <input type="text" name="email" class="form-control" [(ngModel)]="email" placeholder="Email" aria-describedby="basic-addon1" style="width:500px">
         </div>
         <div class="input-group" style="margin-bottom:20px">
             <span class="input-group-addon" id="basic-addon1">Password</span>
