@@ -67,13 +67,13 @@ app.post('/login', function(req, res, next) {
 			return res.sendStatus(400);
 		}
 	console.log(data);
-	user.encrypt(data, function(err, hash) {
+	/*user.encrypt(data, function(err, hash) {
 		data = {
 			email: data.email,
 			password: hash,
 		};
-		console.log(data);
-		user.checklogin(data, function(err, rows, item){
+		console.log(data);*/
+		user.authentication(data, function(err, rows, item){
 			if(err) throw err;
 			if(rows.length == 1) {			
 		
@@ -86,7 +86,7 @@ app.post('/login', function(req, res, next) {
 			//return res.send(item[0]);
 			//res.json(item)
 		})
-	});
+	//});
 	
 	
 });
@@ -136,7 +136,7 @@ app.post('/', function(req, res, next) {
 				'message' : 'already user'
 			});
 		}
-		user.encrypt(data, function(err, hash) {
+/*		user.encrypt(data, function(err, hash) {
 			data = {
 				name: data.name,
 				email: data.email,
@@ -144,14 +144,17 @@ app.post('/', function(req, res, next) {
 				image: data.image,
 				user_type: data.user_type
 			};
-			console.log(data);
+			console.log("encrypt");
+			console.log(data);*/
+
 			user.addUser(data, function(err, rows){
 				if(err) return res.send(err);
 				return res.json({
 					'rows':rows
 				})
 			});
-		});
+			
+	//	});
 		
 	});
 	

@@ -24,15 +24,15 @@ module.exports.findAll = function(callback) {
 // }
 
 module.exports.addUser = function(data, callback){
-	connection.query("INSERT INTO users (name, email, password, image, user_type) VALUES('"+data.name+"', '"+data.email+"', '"+data.password+"', '"+data.image+"', '"+data.user_type+"')", callback);
+	connection.query("INSERT INTO users (name, email, password, image, user_type) VALUES('"+data.name+"', '"+data.email+"', password('"+data.password+"'), '"+data.image+"', '"+data.user_type+"')", callback);
 }
 module.exports.findByEmail = function(email, callback){
 	connection.query("SELECT * FROM users WHERE email = '" + email + "'", callback);
 }
-module.exports.checklogin=function(data, callback){
+module.exports.authentication=function(data, callback){
 	// 생성된 해쉬를 원래 비밀번호로 검증한다. 맞을 경우 true를 반환한다. 주로 회원 로그인 로직에서 사용된다. 
 	//boolean isValidPassword = BCrypt.checkpw(password, passwordHashed);
-	connection.query("SELECT * FROM users WHERE email='"+data.email+"' and password='"+data.password+"'", callback);
+	connection.query("SELECT * FROM users WHERE email='"+data.email+"' and password=password('"+data.password+"')", callback);
 }
 module.exports.findByUsername = function(name, callback) {
 	connection.query("SELECT * FROM users WHERE name = '" + name + "'", callback);
