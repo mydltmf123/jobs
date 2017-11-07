@@ -79,6 +79,7 @@ app.post('/login', function(req, res, next) {
 		
 				user.sendResponse(true, res);
 				
+				
 			}else {
 				user.sendResponse(false, res);
 				
@@ -90,7 +91,7 @@ app.post('/login', function(req, res, next) {
 	
 	
 });
-app.post('/', function(req, res, next) {
+app.post('/join', function(req, res, next) {
 	var data = {
 		name: req.body.name,
 		email: req.body.email,
@@ -149,9 +150,10 @@ app.post('/', function(req, res, next) {
 
 			user.addUser(data, function(err, rows){
 				if(err) return res.send(err);
-				return res.json({
+				/*return res.json({
 					'rows':rows
-				})
+				})*/
+				user.sendResponse(true, res);
 			});
 			
 	//	});

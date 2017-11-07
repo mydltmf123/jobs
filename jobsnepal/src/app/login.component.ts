@@ -30,12 +30,13 @@ export class LoginComponent implements OnInit{
         email:email,
         password:password
       }
-      this.userService.findUser(data)
+      var result=this.userService.findUser(data)
       .subscribe(res => {
-        if(res==true){
+        if(res.success=="true"){
           console.log(res);
           this.results.unshift(data);
-					location.replace("/home");
+          location.replace("/home");
+
         }
         else{
           console.log(res);

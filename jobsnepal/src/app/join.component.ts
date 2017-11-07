@@ -49,7 +49,8 @@ export class JoinComponent implements OnInit{
 				//this.name = "";
 				//this.passwd = "";
 	      console.log(res);
-	    });
+			});
+			
 	}
 
 }

@@ -42,7 +42,7 @@ export class UserService {
 		urlSearchParams.append('image', data.image);
 		urlSearchParams.append('user_type', data.user_type);
 		
-		return this.http.post(this.apiUrl+this.user_endpoint, urlSearchParams)
+		return this.http.post(this.apiUrl+this.user_endpoint+'/join', urlSearchParams)
 			.map(res => res.json());
 	}
 
