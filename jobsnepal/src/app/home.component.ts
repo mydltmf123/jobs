@@ -19,7 +19,11 @@ export class HomeComponent implements OnInit{
       
   
       constructor(private userService: UserService) {
+<<<<<<< HEAD
           
+=======
+          this.currentUser = JSON.parse(localStorage.getItem('currentUser'));
+>>>>>>> 09973eba0109faa4db74e08dc1001bfb2421ba47
       }
     
     ngOnInit(): void {
@@ -27,7 +31,13 @@ export class HomeComponent implements OnInit{
       
     }
     private loadAllUsers() {
+<<<<<<< HEAD
       this.currentUser = JSON.parse(localStorage.getItem('currentUser'));
       this.currentUser.getAll().subscribe(res => console.log(res));
   }
 }  
+=======
+      this.userService.getAll().subscribe(res => console.log(res));
+  }
+}	
+>>>>>>> 09973eba0109faa4db74e08dc1001bfb2421ba47

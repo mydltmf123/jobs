@@ -32,6 +32,7 @@ export class UserService {
 		return this.http.post(this.apiUrl+this.user_endpoint+'/login', urlSearchParams)
 			.map(res => res.json());
 	}
+
 	addUser(data) {
 		let headers = new Headers();
 		// let headers = new Headers({"Content-Type": "application/json"});
@@ -100,5 +101,20 @@ export class UserService {
 		return this.http.post(this.apiUrl+this.ws_board_endpoint+'/ws_board', urlSearchParams)
 			.map(res => res.json());
 	}
+	getAll() {
+        return this.http.get(this.apiUrl+this.user_endpoint, this.jwt()).map((response: Response) => response.json());
+    }
 
+	private jwt() {
+		// create authorization header with jwt token
+	  let currentUser = JSON.parse(localStorage.getItem('currentUser'));
+	  console.log("CCCCCCCCCCCCCCCCCCCCCCCCCCurrent");
+	  console.log(currentUser.email);
+		if (currentUser && currentUser.email) {
+			let headers = new Headers({ 'Authorization': 'Bearer ' + currentUser.token });
+			console.log("curen");
+			return new RequestOptions({ headers: headers });
+		}			
+		
+	  }
 }
