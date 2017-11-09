@@ -5,17 +5,17 @@ import { AlertModule } from 'ngx-bootstrap';
 import { AppRoutingModule }     from './app-routing.module';
 import { HttpModule } from '@angular/http';
 import { CommonModule } from '@angular/common';
-
 import { AppComponent }        from './app.component';
-import { MenuDetailComponent } from './menu-detail.component';
 import { HomeComponent } from './home.component';
 import { ResumeComponent } from './resume.component';
 import {LoginComponent} from './login.component';
-import {BoardComponent} from './board.component';
+import {WS_BoardComponent} from './ws_board.component';
+import {JS_BoardComponent} from './js_board.component';
 import { UserService } from './service/user.service';
 import { JoinComponent } from './join.component';
 //import { WS_BoardService } from './service/ws_board.service';
 import { WS_PostComponent } from './ws_post.component';
+import { JS_PostComponent } from './js_post.component';
 import { ViewComponent } from './view.component';
 
 
@@ -29,14 +29,14 @@ import { ViewComponent } from './view.component';
   ],
   declarations: [
     AppComponent,
-    MenuDetailComponent,
     HomeComponent,
     ResumeComponent,
     LoginComponent, 
-    BoardComponent,
+    WS_BoardComponent,
+    JS_BoardComponent,
     JoinComponent,
-//    WS_BoardService,
     WS_PostComponent,
+    JS_PostComponent,
     ViewComponent
   ],
   providers: [UserService],

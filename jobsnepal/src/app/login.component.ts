@@ -2,6 +2,9 @@ import { Component, Inject, OnInit }        from '@angular/core';
 import { ActivatedRoute, ParamMap } from '@angular/router';
 import { Location }                 from '@angular/common';
 import { UserService } from './service/user.service';
+import { Http, Headers, RequestOptions,Response } from '@angular/http';
+import { Observable } from 'rxjs/Observable';
+import 'rxjs/add/operator/map'
 
 @Component({
   selector: 'app-login',
@@ -24,6 +27,7 @@ export class LoginComponent implements OnInit{
     ngOnInit(): void {
       this.results = [];
       this.getUsers();
+      this.logOut();
     }
     login(email, password) {
       var data={
@@ -35,6 +39,12 @@ export class LoginComponent implements OnInit{
         if(res.success=="true"){
           console.log(res);
           this.results.unshift(data);
+          let user = data;
+          if (user && user.email){
+            localStorage.setItem('currentUser', JSON.stringify(data));
+            console.log("true");
+          }
+
           location.replace("/home");
 
         }
@@ -43,6 +53,10 @@ export class LoginComponent implements OnInit{
         }
         
       });
+    }
+    logOut(){
+      localStorage.removeItem('currentUser');
+      console.log("logout");
     }
     getUsers() {
       this.userService.getUsers()

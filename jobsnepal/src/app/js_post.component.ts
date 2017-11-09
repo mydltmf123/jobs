@@ -4,12 +4,12 @@ import { Location }          from '@angular/common';
 import { UserService } from './service/user.service';
 
 @Component({
-  selector: 'app-ws_post',
-  templateUrl: './ws_post.component.html',
+  selector: 'app-js_post',
+  templateUrl: './js_post.component.html',
   styles: [''],
   providers: [UserService]
 })
-export class WS_PostComponent implements OnInit{
+export class JS_PostComponent implements OnInit{
   user_id: string;
   user_name: string;
   subject: string;
@@ -17,7 +17,7 @@ export class WS_PostComponent implements OnInit{
   reg_date: string;
 
   results = [];
-  constructor(private ws_boardService:UserService) {
+  constructor(private userService:UserService) {
 	  
 	}
 
@@ -26,7 +26,7 @@ export class WS_PostComponent implements OnInit{
 	  this.getpost();
 	}
   getpost() {
-	  this.ws_boardService.get_ws_post()
+	  this.userService.get_js_post()
 	  .subscribe(res => console.log(res));
 	}
 
@@ -47,7 +47,7 @@ export class WS_PostComponent implements OnInit{
 			skills: skills
 			
 		};
-	  var result = this.ws_boardService.addpost(data)
+	  var result = this.userService.addpost(data)
 	    .subscribe(res => {
 	    	if(res.success == "true") {
 					this.results.unshift(data);

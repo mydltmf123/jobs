@@ -5,12 +5,12 @@ import { UserService } from './service/user.service';
 import { NgFor } from '@angular/common';
 
 @Component({
-  selector: 'app-board',
-  templateUrl: './board.component.html',
+  selector: 'app-ws_board',
+  templateUrl: './ws_board.component.html',
   styles: [''],
   providers: [UserService]
 })
-export class BoardComponent implements OnInit{
+export class WS_BoardComponent implements OnInit{
   board_id: string;
   user_id: string;
   user_name: string;
@@ -29,7 +29,7 @@ export class BoardComponent implements OnInit{
 	}
   getpost() {
     
-	  var result = this.userService.getpost()
+	  var result = this.userService.get_ws_post()
     .subscribe(res => {
       this.results = res;
       console.log(res);

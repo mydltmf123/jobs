@@ -4,9 +4,11 @@ import { RouterModule, Routes } from '@angular/router';
 import { HomeComponent } from './home.component';
 import { ResumeComponent } from './resume.component';
 import { LoginComponent } from './login.component';
-import { BoardComponent } from './board.component';
+import { WS_BoardComponent } from './ws_board.component';
+import { JS_BoardComponent } from './js_board.component';
 import { JoinComponent } from './join.component';
 import { WS_PostComponent } from './ws_post.component';
+import { JS_PostComponent } from './js_post.component';
 import {ViewComponent } from './view.component';
 
 
@@ -15,9 +17,11 @@ const routes: Routes = [
   { path: 'home',  component: HomeComponent },
   { path: 'resume', component: ResumeComponent },
   { path: 'login', component: LoginComponent },
-  { path: 'board', component: BoardComponent },
+  { path: 'ws_board', component: WS_BoardComponent },
+  { path: 'js_board', component: JS_BoardComponent },
   { path: 'join', component: JoinComponent },
   { path: 'ws_post', component: WS_PostComponent },
+  { path: 'js_post', component: JS_PostComponent },
   { path: 'view/:id', component: ViewComponent }
   
 ];

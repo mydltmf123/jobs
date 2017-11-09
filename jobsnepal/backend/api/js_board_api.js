@@ -2,23 +2,23 @@ var express = require('express');
 var app = express();
 
 
-var ws_board = require('../model/ws_board');
+var js_board = require('../model/js_board');
 
 // API Routes
 app.get('/', function(req, res) {
-	ws_board.findAll(function(err, rows, fields) {
+	js_board.findAll(function(err, rows, fields) {
 		if(err) throw err;
 		res.json(rows);
 	})
 });
 app.get('/:id', function(req, res){
-	ws_board.findByUsername(req.params.id, function(err, item){
+	js_board.findByUsername(req.params.id, function(err, item){
 		if(err) throw err;
 		return res.send(item[0]);
 	})
 });
 
-app.post('/ws_board', function(req, res, next) {
+app.post('/js_board', function(req, res, next) {
 	var data = {
         title: title, 
         category: category, 
@@ -59,10 +59,10 @@ app.post('/ws_board', function(req, res, next) {
     if(!data.skills)
 		return res.sendStatus(400);
     
-    ws_board.addpost(data, function(err, info){
+    js_board.addpost(data, function(err, info){
         if(err) throw err;
         console.log(info);
-        ws_board.sendResponse(true, res);
+        js_board.sendResponse(true, res);
     });
 	
 });

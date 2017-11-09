@@ -31,7 +31,7 @@ export class ViewComponent implements OnInit{
 	}
     getpost(id) {
         
-      var result = this.userService.getpost()
+      var result = this.userService.get_ws_post()
         .subscribe(res => {
           this.results = res;
           console.log(res);
