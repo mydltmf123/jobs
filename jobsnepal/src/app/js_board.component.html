@@ -4,19 +4,21 @@
         <table class="table table-striped">            
             <thead>
                 <tr>
-                    <th>id</th>
+                    <th>post id</th>
+                    <th>user name</th>
                     <th>subject</th>
-                    <th>user_name</th>
+                    
                     <th>date</th>
                 </tr>
             </thead>
             <ng-container *ngFor="let contact of results">
             <tbody>
                 <tr>
-                    <td>{{contact.board_id}}</td>
-                    <td><a routerLink="/view/{{contact.board_id}}">{{contact.subject}}</a>
+                    <td>{{contact.id}}</td>
+                    <td>{{contact.title}}</td>
+                    <td><a routerLink="/js_board/{{contact.id}}">{{contact.title}}</a>
                       </td>
-                    <td>{{contact.user_name}}</td>
+                    
                     <td>{{contact.reg_date}}</td>    
                 </tr>
             </tbody>
@@ -29,10 +31,7 @@
 <div class=text-center>
     <ul class="pagination">
         <li><a href="#">1</a></li>
-        <li><a href="#">2</a></li>
-        <li><a href="#">3</a></li>
-        <li><a href="#">4</a></li>
-        <li><a href="#">5</a></li>
+        
     </ul>
 </div>
 </div>

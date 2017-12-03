@@ -13,25 +13,25 @@ connection.connect(function() {
 
 
 module.exports.findAll = function(callback) {
-	connection.query("SELECT * FROM ws_board ORDER BY board_pid DESC", callback);
+	connection.query("SELECT * FROM jobs ORDER BY id DESC", callback);
 }
 
-
+//수정
 module.exports.addpost = function(data, callback) {
 	//connection.query("INSERT INTO ws_board SET ?", data, callback);
-	connection.query("INSERT INTO jobs (employer_id, title, category, no_of_vacancies, experience_required, job_mode, salary, qualification, apply_before, address, description, remarks, skills) VALUES(employer_id="+data.emplyoer_id+", title= '"+data.title+"', category= '"+data.category+"', no_of_vacancies= '"+data.no_of_vacancies+"', experience_required= '"+data.experience_required+"', job_mode= '"+data.job_mode+"', salary= '"+data.salary+"', qualification= '"+data.qualification+"', apply_before= '"+data.apply_befor+"', address= '"+data.address+"', description= '"+data.description+"', remarks= '"+data.remark+"', skills= '"+data.skills+"')");
+	connection.query("INSERT INTO jobs (employer_id, title, category, no_of_vacancies, experience_required, job_mode, salary, qualification, apply_before, address, description, remarks, skills) VALUES(employer_id="+data.emplyoer_id+", title= '"+data.title+"', category= '"+data.category+"', no_of_vacancies= "+data.no_of_vacancies+", experience_required= '"+data.experience_required+"', job_mode= '"+data.job_mode+"', salary= '"+data.salary+"', qualification= '"+data.qualification+"', apply_before= '"+data.apply_befor+"', address= '"+data.address+"', description= '"+data.description+"', remarks= '"+data.remark+"', skills= '"+data.skills+"')");
 }
 
-module.exports.findByUsername = function(name, callback) {
-	connection.query("SELECT * FROM ws_board WHERE user_name = '" + name + "'", callback);
+module.exports.getpost = function(id, callback) {
+	connection.query("SELECT * FROM jobs WHERE id = " + id, callback);
 }
-
+//
 module.exports.findeByID = function(data, callback) {
 	connection.query("SELECT * FROM jobs WEHRE id= "+id, callback);
 }
 
 module.exports.findBySubject = function(name, callback) {
-	connection.query("SELECT * FROM ws_board WHERE subject = '" + subject + "'", callback);
+	connection.query("SELECT * FROM jobs WHERE subject = '" + subject + "'", callback);
 }
 //findone id로
 

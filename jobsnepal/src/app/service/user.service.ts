@@ -53,9 +53,15 @@ export class UserService {
 			res => res.json()
 		);
 	}
-	get_js_post() {
+	get_board() {
 		return this.http.get(this.apiUrl+this.js_board_endpoint, {headers:this.headers}).map(
 			res => res.json()
+		);
+	}
+	//수정
+	get_post(id) {
+		return this.http.get(this.apiUrl+this.js_board_endpoint+"/"+id, {headers:this.headers}).map(
+			res=>res.json()
 		);
 	}
 	getAll() {
@@ -76,7 +82,7 @@ export class UserService {
      }
 
 
-
+//수정
 	addpost(data) {
 		let headers = new Headers();
 		// let headers = new Headers({"Content-Type": "application/json"});
@@ -98,7 +104,7 @@ export class UserService {
 		urlSearchParams.append('skills', data.skills);
   
 
-		return this.http.post(this.apiUrl+this.ws_board_endpoint+'/ws_board', urlSearchParams)
+		return this.http.post(this.apiUrl+this.js_board_endpoint+"/new", urlSearchParams)
 			.map(res => res.json());
 	}
 	

@@ -20,15 +20,15 @@ export class JS_PostComponent implements OnInit{
   constructor(private userService:UserService) {
 	  
 	}
-
+//수정
 	ngOnInit() {
 	  this.results = [];
-	  this.getpost();
+	  //this.getpost();
 	}
-  getpost() {
-	  this.userService.get_js_post()
+  /*getpost() {
+	  this.userService.get_post()
 	  .subscribe(res => console.log(res));
-	}
+	}*/
 
 	addpost(employer_id, title, category, no_of_vacancies, experience_required, job_mode, salary, qualification, apply_before, address, description, remarks, skills) {
 		var data = {

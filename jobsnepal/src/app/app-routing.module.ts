@@ -21,8 +21,8 @@ const routes: Routes = [
   { path: 'js_board', component: JS_BoardComponent },
   { path: 'join', component: JoinComponent },
   { path: 'ws_post', component: WS_PostComponent },
-  { path: 'js_post', component: JS_PostComponent },
-  { path: 'view/:id', component: ViewComponent }
+  { path: 'js_board/new', component: JS_PostComponent },
+  { path: 'js_board/:id', component: ViewComponent }
   
 ];
 

@@ -11,12 +11,19 @@ import { NgFor } from '@angular/common';
   providers: [UserService]
 })
 export class JS_BoardComponent implements OnInit{
-  board_id: string;
-  user_id: string;
-  user_name: string;
-  subject: string;
-  content: string;
-  reg_date: string;
+  id:string;
+  title: string;
+  category: string;
+  no_of_vacancies: string;
+  experience_required: string;
+  job_mode: string;
+  salary:string;
+  qualification:string;
+  apply_before:string;
+  address:string;
+  description:string;
+  remarks:string;
+  skills:string;
 
   results = [];
   constructor(private userService:UserService) {
@@ -29,7 +36,7 @@ export class JS_BoardComponent implements OnInit{
 	}
   getpost() {
     
-	  var result = this.userService.get_js_post()
+	  var result = this.userService.get_board()
     .subscribe(res => {
       this.results = res;
       console.log(res);

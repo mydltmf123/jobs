@@ -12,13 +12,13 @@ app.get('/', function(req, res) {
 	})
 });
 app.get('/:id', function(req, res){
-	js_board.findByUsername(req.params.id, function(err, item){
+	js_board.getpost(req.params.id, function(err, item){
 		if(err) throw err;
 		return res.send(item[0]);
 	})
 });
-
-app.post('/js_board', function(req, res, next) {
+//수정
+app.post('/new', function(req, res, next) {
 	var data = {
         title: title, 
         category: category, 

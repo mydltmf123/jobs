@@ -16,6 +16,8 @@ app.use('/', express.static(__dirname));
 // Import API Routes
 app.use('/api/users', require('./api/user_api'));
 app.use('/api/ws_board', require('./api/ws_board_api'));
+app.use('/api/js_board', require('./api/js_board_api'));//수정
+
 
 //app.use('/api/post', )
 
