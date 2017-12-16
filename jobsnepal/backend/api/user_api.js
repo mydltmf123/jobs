@@ -12,7 +12,7 @@ app.get('/', function(req, res) {
 	})
 });
 
-app.get('/email=:email/password=:password', function(req, res){
+/*app.get('/email=:email/password=:password', function(req, res){
 	console.log(req.params);
 	console.log(req.params.email);
 	console.log(req.params.password);
@@ -23,11 +23,11 @@ app.get('/email=:email/password=:password', function(req, res){
 	user.findByEmail(data.email, function(err, rows, item){
 		if(err) throw err;
 		if(rows.length == 1) {			
-			/*user.encrypt(data, function(err, hash) {
-				data = {
-					email: data.email,
-					password: hash,
-				};*/
+			//user.encrypt(data, function(err, hash) {
+			//	data = {
+			//		email: data.email,
+			//		password: hash,
+			//	};
 				console.log(rows);
 				console.log(rows.password)
 				if(data.password==rows.password){
@@ -49,7 +49,8 @@ app.get('/email=:email/password=:password', function(req, res){
 		//return res.send(item[0]);
 		//res.json(item)
 	})
-});
+});*/
+
 app.post('/login', function(req, res, next) {
 	
 	var data={
