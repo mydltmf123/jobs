@@ -3,6 +3,7 @@ import { ActivatedRoute, ParamMap } from '@angular/router';
 import { Location }          from '@angular/common';
 import { UserService } from './service/user.service';
 import { NgFor } from '@angular/common';
+import {CookieService} from 'angular2-cookie/core';
 
 @Component({
   selector: 'app-js_board',
@@ -26,14 +27,22 @@ export class JS_BoardComponent implements OnInit{
   skills:string;
 
   results = [];
-  constructor(private userService:UserService) {
+  constructor(private userService:UserService, private cookieService:CookieService) {
 	  
 	}
 
 	ngOnInit() {
-	  this.results = [];
+    this.authentication();
+    this.results = [];
+    
 	  this.getpost();
-	}
+  }
+  authentication(){
+    var cookieExamples = this.cookieService.get("cookieExample");
+    if(!cookieExamples){
+      
+    }
+  }
   getpost() {
     
 	  var result = this.userService.get_board()

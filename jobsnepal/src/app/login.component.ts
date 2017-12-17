@@ -5,6 +5,7 @@ import { UserService } from './service/user.service';
 import { Http, Headers, RequestOptions,Response } from '@angular/http';
 import { Observable } from 'rxjs/Observable';
 import 'rxjs/add/operator/map'
+import {CookieService} from 'angular2-cookie/core';
 
 @Component({
   selector: 'app-login',
@@ -20,17 +21,18 @@ export class LoginComponent implements OnInit{
 	user_type: string;
   results = [];
   apiUrl = 'http://localhost:3000/api';
-  
+
  
-  constructor(private userService:UserService) {
-	 
+  constructor(private userService:UserService, private cookieService:CookieService) {
+
 	}
 
 
     ngOnInit(): void {
+      this.cookieService.removeAll();
+      console.log(this.cookieService.get("cookieExample")); 
       this.results = [];
       this.getUsers();
-      this.logOut();
     }
     login(email, password) {
       var data={
@@ -42,11 +44,9 @@ export class LoginComponent implements OnInit{
         if(res.success=="true"){
           console.log(res);
           this.results.unshift(data);
-          let user = data;
-          if (user && user.email){
-            localStorage.setItem('currentUser', JSON.stringify(data));
-            console.log("true");
-          }
+ 
+          this.cookieService.put("cookieExample", email);
+
 
           location.replace("/home");
 
@@ -58,15 +58,7 @@ export class LoginComponent implements OnInit{
         
                 });
       }
-      logout() {
-        // remove user from local storage to log user out
-        localStorage.removeItem('currentUser');
-        console.log("logout");
-    }
-    logOut(){
-      localStorage.removeItem('currentUser');
-      console.log("logout");
-    }
+     
     getUsers() {
       this.userService.getUsers()
       .subscribe(res => console.log(res));

@@ -6,6 +6,7 @@ import { AppRoutingModule }     from './app-routing.module';
 import { HttpModule } from '@angular/http';
 import { CommonModule } from '@angular/common';
 import { AppComponent }        from './app.component';
+import {HeaderComponent} from './header.component';
 import { HomeComponent } from './home.component';
 import { ResumeComponent } from './resume.component';
 import {LoginComponent} from './login.component';
@@ -17,7 +18,7 @@ import { JoinComponent } from './join.component';
 import { WS_PostComponent } from './ws_post.component';
 import { JS_PostComponent } from './js_post.component';
 import { ViewComponent } from './view.component';
-
+import { CookieService } from 'angular2-cookie/services/cookies.service';
 
 @NgModule({
   imports: [
@@ -29,6 +30,7 @@ import { ViewComponent } from './view.component';
   ],
   declarations: [
     AppComponent,
+    HeaderComponent,
     HomeComponent,
     ResumeComponent,
     LoginComponent, 
@@ -39,7 +41,7 @@ import { ViewComponent } from './view.component';
     JS_PostComponent,
     ViewComponent
   ],
-  providers: [UserService],
+  providers: [UserService, CookieService],
   bootstrap: [ AppComponent ]
 })
 export class AppModule { }

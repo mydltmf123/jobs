@@ -2,6 +2,7 @@ import { Component, Inject, OnInit }        from '@angular/core';
 import { ActivatedRoute, ParamMap } from '@angular/router';
 import { Location }          from '@angular/common';
 import { UserService } from './service/user.service';
+import {CookieService} from 'angular2-cookie/core';
 
 @Component({
   selector: 'app-js_post',
@@ -17,12 +18,13 @@ export class JS_PostComponent implements OnInit{
   reg_date: string;
 
   results = [];
-  constructor(private userService:UserService) {
+  constructor(private userService:UserService, private cookieService:CookieService) {
 	  
 	}
 //수정
 	ngOnInit() {
-	  this.results = [];
+		this.results = [];
+		var cookieExamples = this.cookieService.get("cookieExample");
 	  //this.getpost();
 	}
   /*getpost() {
@@ -30,9 +32,9 @@ export class JS_PostComponent implements OnInit{
 	  .subscribe(res => console.log(res));
 	}*/
 
-	addpost(employer_id, title, category, no_of_vacancies, experience_required, job_mode, salary, qualification, apply_before, address, description, remarks, skills) {
+	addpost(title, category, no_of_vacancies, experience_required, job_mode, salary, qualification, apply_before, address, description, remarks, skills) {
 		var data = {
-			employer_id: employer_id,
+			employer_id: "cookie",
 			title: title, 
 			category: category, 
 			no_of_vacancies: no_of_vacancies, 

@@ -77,7 +77,8 @@ export class UserService {
          let headers = new Headers({ 'Authorization': 'Bearer ' + currentUser.token });
          console.log("curen");
          return new RequestOptions({ headers: headers });
-      }         
+	  }
+	      
       
      }
 
